@@ -1,6 +1,6 @@
 ## Entidades y sus Métodos
 🟡 Producto
-- Atributos: id_producto, id_empresa, nombre, descripcion, peso, volumen, sku, precio
+* Atributos: id_producto, id_empresa, nombre, descripcion, peso, volumen, sku, precio
 - Métodos:
 - crearProducto()
 actualizarProducto()
