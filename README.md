@@ -6,14 +6,17 @@ crearProducto()
 actualizarProducto()
 eliminarProducto()
 consultarProducto()
+
 🟡 Almacen
 Atributos: id_almacen, id_empresa, id_agenteAliado, nombre, ubicacion, capacidad, tipo
 Métodos:
 registrarAlmacen()
 actualizarAlmacen()
 consultarStock()
+
 🟡 Inventario
-Atributos: id_inventario, id_almacen, id_producto, stock_disponible, stock_reservado, ultima_actualizacion
+Atributos: id_inventario, id_almacen, id_producto, stock_disponible, stock_reservado,
+ultima_actualizacion
 Métodos:
 actualizarStock()
 reservarProducto()
