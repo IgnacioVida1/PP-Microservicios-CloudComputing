@@ -118,14 +118,12 @@
 ## 🔴 Pedido
 **Atributos:**  
 1. id_pedido  
-2. id_asignacionPedido  
-3. id_empresa  
-4. id_cliente_final  
-5. fecha_creacion  
-6. estado  
-7. monto_total  
-8. direccion_entrega  
-9. ventana_horaria  
+2. id_cliente_final  
+3. fecha_creacion  
+4. estado  
+5. monto_total  
+6. direccion_entrega  
+7. ventana_horaria  
 
 **Métodos:**  
 1. crearPedido()  
