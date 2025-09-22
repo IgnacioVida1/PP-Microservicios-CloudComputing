@@ -1,18 +1,18 @@
 ## Entidades y sus Métodos
 🟡 Producto
-* Atributos: id_producto, id_empresa, nombre, descripcion, peso, volumen, sku, precio
-- Métodos:
-- crearProducto()
-actualizarProducto()
-eliminarProducto()
-consultarProducto()
+1. Atributos: id_producto, id_empresa, nombre, descripcion, peso, volumen, sku, precio
+2. Métodos:
+	a. crearProducto()
+	b. actualizarProducto()
+	c. eliminarProducto()
+	d. consultarProducto()
 
 🟡 Almacen
-Atributos: id_almacen, id_empresa, id_agenteAliado, nombre, ubicacion, capacidad, tipo
-Métodos:
-registrarAlmacen()
-actualizarAlmacen()
-consultarStock()
+1. Atributos: id_almacen, id_empresa, id_agenteAliado, nombre, ubicacion, capacidad, tipo
+2. Métodos:
+	a. registrarAlmacen()
+	b. actualizarAlmacen()
+	c. consultarStock()
 
 🟡 Inventario
 Atributos: id_inventario, id_almacen, id_producto, stock_disponible, stock_reservado,
