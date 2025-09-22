@@ -215,8 +215,4 @@
 **Responsable:** Persona 5  
 **Funciones clave:**  
 1. Consultas analíticas (ventas, stock, eficiencia de entregas)  
-
----
-
-## Endpoints
-- `/reportes/...`
+2. Endpoints: Reportes, etc...
