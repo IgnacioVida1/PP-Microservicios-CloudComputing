@@ -1,8 +1,8 @@
 # Node.js dependencies
-node_modules/
+Backend/APIsnode_modules/
 
 # Logs
-logs
+Backend/APIs/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -21,16 +21,16 @@ coverage/
 .npm
 
 # dotenv environment variables file
-.env
+Backend/APIs/.env
 
 # Build directories
-dist/
-build/
+Backend/APIs/dist/
+Backend/APIs/build/
 
 # OS files
 .DS_Store
 Thumbs.db
 
 # MongoDB data (si usas un directorio local para la base de datos)
-data/
-dump/
+Backend/APIs/data/
+Backend/APIs/dump/
