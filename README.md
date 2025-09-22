@@ -202,7 +202,7 @@
 ## Microservicio 4 – Integración  
 **Tecnología:** Sin BD, Go o Python ligero  
 **Entidades:** No propias (consume de los otros MS)  
-**Responsable:** Frisancho  
+**Responsable:** Gabriel  
 **Funciones clave:**  
 1. Endpoint `/asignarPedido`: combina Pedido (MS3) + Producto (MS1) + Conductor (MS2)  
 2. Orquestación de servicios  
