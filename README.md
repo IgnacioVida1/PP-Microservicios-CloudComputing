@@ -207,10 +207,10 @@
 
 ---
 
-## Microservicio 5 – Analítico  
+## Microservicio 5 – Data Analytics  
 **Tecnología:** Python + Athena  
 **Entidades:** No propias (consume data de S3)  
 **Responsable:** Yuri  
 **Funciones clave:**  
-1. Consultas analíticas (ventas, stock, eficiencia de entregas)  
+1. Consultas analíticas (ventas, stock, eficiencia de entregas, tiempo promedio de la entrega, productos más pedidos, etc)  
 2. Endpoints: Reportes, etc...
