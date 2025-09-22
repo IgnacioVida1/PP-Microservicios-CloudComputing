@@ -168,7 +168,7 @@
 ## Microservicio 1 – Gestión de Productos & Almacenes  
 **Tecnología:** SQL – MySQL, Python/FastAPI  
 **Entidades:** Producto, Almacen, Inventario  
-**Responsable:** Persona 1  
+**Responsable:** Julio  
 **Funciones clave:**  
 1. CRUD de productos  
 2. Registrar almacenes  
@@ -179,7 +179,7 @@
 ## Microservicio 2 – Logística y Transporte  
 **Tecnología:** SQL – PostgreSQL, Java/Spring Boot  
 **Entidades:** AgenteAliado, Vehiculo, Conductor  
-**Responsable:** Persona 2  
+**Responsable:** Amir  
 **Funciones clave:**  
 1. Registrar agentes  
 2. Asignar vehículos y conductores  
@@ -190,7 +190,7 @@
 ## Microservicio 3 – Pedidos & Clientes  
 **Tecnología:** NoSQL – MongoDB, Node.js/Express  
 **Entidades:** ClienteFinal, Pedido, DetallePedido, PruebaEntrega  
-**Responsable:** Persona 3  
+**Responsable:** Ignacio  
 **Funciones clave:**  
 1. Crear pedidos  
 2. Agregar detalles  
@@ -202,7 +202,7 @@
 ## Microservicio 4 – Integración  
 **Tecnología:** Sin BD, Go o Python ligero  
 **Entidades:** No propias (consume de los otros MS)  
-**Responsable:** Persona 4  
+**Responsable:** Frisancho  
 **Funciones clave:**  
 1. Endpoint `/asignarPedido`: combina Pedido (MS3) + Producto (MS1) + Conductor (MS2)  
 2. Orquestación de servicios  
@@ -212,7 +212,7 @@
 ## Microservicio 5 – Analítico  
 **Tecnología:** Python + Athena  
 **Entidades:** No propias (consume data de S3)  
-**Responsable:** Persona 5  
+**Responsable:** Yuri  
 **Funciones clave:**  
 1. Consultas analíticas (ventas, stock, eficiencia de entregas)  
 2. Endpoints: Reportes, etc...
