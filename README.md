@@ -101,7 +101,7 @@
 
 ---
 
-## 🟠 ClienteFinal
+## 🔴 ClienteFinal
 **Atributos:**  
 1. id_cliente_final  
 2. nombre  
