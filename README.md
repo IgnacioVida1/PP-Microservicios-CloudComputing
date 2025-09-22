@@ -2,7 +2,7 @@
 🟡 Producto
 1. Atributos: id_producto, id_empresa, nombre, descripcion, peso, volumen, sku, precio
 2. Métodos:
-	a. crearProducto()
+	a. crearProducto()  
 	b. actualizarProducto()
 	c. eliminarProducto()
 	d. consultarProducto()
