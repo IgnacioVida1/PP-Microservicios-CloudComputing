@@ -16,7 +16,7 @@ app = FastAPI(
 # Configurar CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # En producción, especificar dominios específicos
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -77,11 +77,10 @@ async def health_check():
         raise HTTPException(status_code=503, detail=f"Service unhealthy: {str(e)}")
 
 if __name__ == "__main__":
-    # Configuración para desarrollo
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
         port=8000,
-        reload=True,  # Auto-reload en desarrollo
+        reload=True,
         log_level="info"
     )

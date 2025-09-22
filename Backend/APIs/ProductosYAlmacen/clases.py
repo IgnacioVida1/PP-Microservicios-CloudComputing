@@ -34,6 +34,6 @@ class Inventario(Base):
     id_inventario = Column(Integer, primary_key=True, index=True)
     id_almacen = Column(Integer, ForeignKey("Almacen.id_almacen"), nullable=False)
     id_producto = Column(Integer, ForeignKey("Producto.id_producto"), nullable=False)
-    stock_disponible = Column(Integer, nullable=False, default=0)  
+    stock_disponible = Column(Integer, nullable=False, default=0)
     stock_reservado = Column(Integer, nullable=False, default=0)
     ultima_actualizacion = Column(DateTime, default=func.now(), onupdate=func.now())
