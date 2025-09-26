@@ -22,7 +22,7 @@ exports.actualizarDetalle = async (req, res, next) => {
     }
 };
 
-exports.consultarPedidoId = async (req, res, next) => {
+exports.consultarDetalleId = async (req, res, next) => {
     try {
         const detalle = await DetallePedido.findById(req.params.id, {__v: false});
         if (!detalle) {
@@ -34,7 +34,7 @@ exports.consultarPedidoId = async (req, res, next) => {
     }
 };
 
-exports.consultarPedidos = async (req, res, next) => {
+exports.consultarDetalles = async (req, res, next) => {
     try {
         const detalles = await DetallePedido.find({}, {__v: false});
         res.json(detalles);
