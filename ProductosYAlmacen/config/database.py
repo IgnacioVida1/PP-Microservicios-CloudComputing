@@ -15,9 +15,9 @@ DATABASE_URL = os.getenv(
 # Crear engine de SQLAlchemy
 engine = create_engine(
     DATABASE_URL,
-    echo=True,  # Para debug - mostrar queries SQL
-    pool_pre_ping=True,  # Verificar conexiones antes de usar
-    pool_recycle=300,  # Reciclar conexiones cada 5 minutos
+    echo=True,  
+    pool_pre_ping=True,  
+    pool_recycle=300,  
 )
 
 # Crear SessionLocal para manejar sesiones de BD
@@ -44,8 +44,8 @@ def create_tables():
 def test_connection():
     try:
         with engine.connect() as connection:
-            print("✅ Conexión a MySQL exitosa")
+            print("Conexión a MySQL exitosa")
             return True
     except Exception as e:
-        print(f"❌ Error de conexión: {e}")
+        print(f"Error de conexión: {e}")
         return False

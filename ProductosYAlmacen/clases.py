@@ -9,7 +9,6 @@ class Producto(Base):
     __tablename__ = "Producto"
 
     id_producto = Column(Integer, primary_key=True, index=True)
-    id_empresa = Column(Integer, nullable=False)
     nombre = Column(String(100), nullable=False)
     descripcion = Column(String(255))
     peso = Column(Float)
@@ -21,7 +20,6 @@ class Almacen(Base):
     __tablename__ = "Almacen"
 
     id_almacen = Column(Integer, primary_key=True, index=True)
-    id_empresa = Column(Integer, nullable=False)
     id_agenteAliado = Column(Integer, nullable=True)
     nombre = Column(String(100), nullable=False)
     ubicacion = Column(String(150), nullable=False)

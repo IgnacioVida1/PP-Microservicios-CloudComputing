@@ -6,12 +6,11 @@ class AlmacenController:
     def __init__(self, db: Session):
         self.db = db
     
-    def registrar_almacen(self, id_empresa: int, id_agenteAliado: Optional[int], 
+    def registrar_almacen(self, id_agenteAliado: Optional[int], 
                          nombre: str, ubicacion: str, capacidad: int, tipo: str) -> Almacen:
         """Registrar un nuevo almacén"""
         try:
             nuevo_almacen = Almacen(
-                id_empresa=id_empresa,
                 id_agenteAliado=id_agenteAliado,
                 nombre=nombre,
                 ubicacion=ubicacion,
@@ -47,10 +46,6 @@ class AlmacenController:
     def consultar_almacen(self, id_almacen: int) -> Optional[Almacen]:
         """Consultar un almacén por ID"""
         return self.db.query(Almacen).filter(Almacen.id_almacen == id_almacen).first()
-    
-    def consultar_almacenes_por_empresa(self, id_empresa: int) -> List[Almacen]:
-        """Consultar todos los almacenes de una empresa"""
-        return self.db.query(Almacen).filter(Almacen.id_empresa == id_empresa).all()
     
     def consultar_todos_almacenes(self) -> List[Almacen]:
         """Consultar todos los almacenes"""

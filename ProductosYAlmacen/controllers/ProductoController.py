@@ -6,12 +6,11 @@ class ProductoController:
     def __init__(self, db: Session):
         self.db = db
     
-    def crear_producto(self, id_empresa: int, nombre: str, descripcion: str, 
+    def crear_producto(self, nombre: str, descripcion: str, 
                       peso: float, volumen: float, sku: str, precio: float) -> Producto:
         """Crear un nuevo producto"""
         try:
             nuevo_producto = Producto(
-                id_empresa=id_empresa,
                 nombre=nombre,
                 descripcion=descripcion,
                 peso=peso,
@@ -62,10 +61,6 @@ class ProductoController:
     def consultar_producto(self, id_producto: int) -> Optional[Producto]:
         """Consultar un producto por ID"""
         return self.db.query(Producto).filter(Producto.id_producto == id_producto).first()
-    
-    def consultar_productos_por_empresa(self, id_empresa: int) -> List[Producto]:
-        """Consultar todos los productos de una empresa"""
-        return self.db.query(Producto).filter(Producto.id_empresa == id_empresa).all()
     
     def consultar_todos_productos(self) -> List[Producto]:
         """Consultar todos los productos"""
