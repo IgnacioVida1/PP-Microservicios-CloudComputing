@@ -27,8 +27,6 @@ __pycache__/
 *.pyd
 *.sqlite3
 *.db
-.env
-.env.*
 *.egg-info/
 .pytest_cache/
 

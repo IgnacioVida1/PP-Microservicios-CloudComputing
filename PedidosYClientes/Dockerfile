@@ -17,7 +17,7 @@ COPY Backend/. .
 RUN npm install dotenv --production
 
 # Exponemos el puerto en el que corre la app
-EXPOSE 3000
+EXPOSE 8002
 
 # Comando para iniciar la app
 CMD ["npm", "start"]
