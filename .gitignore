@@ -89,8 +89,6 @@ coverage/
 .npm
 
 # dotenv environment variables file
-PedidosYClientes/.env
-
 # Build directories
 PedidosYClientes/dist/
 PedidosYClientes/build/
