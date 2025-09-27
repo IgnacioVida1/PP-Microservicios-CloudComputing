@@ -9,7 +9,6 @@ router = APIRouter(prefix="/productos", tags=["productos"])
 
 # Schemas de Pydantic
 class ProductoCreate(BaseModel):
-    id_empresa: int
     nombre: str
     descripcion: Optional[str] = None
     peso: Optional[float] = None
@@ -26,7 +25,6 @@ class ProductoUpdate(BaseModel):
 
 class ProductoResponse(BaseModel):
     id_producto: int
-    id_empresa: int
     nombre: str
     descripcion: Optional[str]
     peso: Optional[float]
@@ -43,7 +41,6 @@ def crear_producto(producto: ProductoCreate, db: Session = Depends(get_db)):
     controller = ProductoController(db)
     try:
         nuevo_producto = controller.crear_producto(
-            id_empresa=producto.id_empresa,
             nombre=producto.nombre,
             descripcion=producto.descripcion,
             peso=producto.peso,
@@ -96,12 +93,6 @@ def consultar_todos_productos(db: Session = Depends(get_db)):
     """Consultar todos los productos"""
     controller = ProductoController(db)
     return controller.consultar_todos_productos()
-
-@router.get("/empresa/{id_empresa}", response_model=List[ProductoResponse])
-def consultar_productos_por_empresa(id_empresa: int, db: Session = Depends(get_db)):
-    """Consultar productos de una empresa"""
-    controller = ProductoController(db)
-    return controller.consultar_productos_por_empresa(id_empresa)
 
 @router.get("/sku/{sku}", response_model=ProductoResponse)
 def buscar_producto_por_sku(sku: str, db: Session = Depends(get_db)):

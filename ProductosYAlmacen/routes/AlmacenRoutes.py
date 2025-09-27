@@ -9,7 +9,6 @@ router = APIRouter(prefix="/almacenes", tags=["almacenes"])
 
 # Schemas de Pydantic
 class AlmacenCreate(BaseModel):
-    id_empresa: int
     id_agenteAliado: Optional[int] = None
     nombre: str
     ubicacion: str
@@ -25,7 +24,6 @@ class AlmacenUpdate(BaseModel):
 
 class AlmacenResponse(BaseModel):
     id_almacen: int
-    id_empresa: int
     id_agenteAliado: Optional[int]
     nombre: str
     ubicacion: str
@@ -41,7 +39,6 @@ def registrar_almacen(almacen: AlmacenCreate, db: Session = Depends(get_db)):
     controller = AlmacenController(db)
     try:
         nuevo_almacen = controller.registrar_almacen(
-            id_empresa=almacen.id_empresa,
             id_agenteAliado=almacen.id_agenteAliado,
             nombre=almacen.nombre,
             ubicacion=almacen.ubicacion,
@@ -81,12 +78,6 @@ def consultar_todos_almacenes(db: Session = Depends(get_db)):
     """Consultar todos los almacenes"""
     controller = AlmacenController(db)
     return controller.consultar_todos_almacenes()
-
-@router.get("/empresa/{id_empresa}", response_model=List[AlmacenResponse])
-def consultar_almacenes_por_empresa(id_empresa: int, db: Session = Depends(get_db)):
-    """Consultar almacenes de una empresa"""
-    controller = AlmacenController(db)
-    return controller.consultar_almacenes_por_empresa(id_empresa)
 
 @router.get("/{id_almacen}/stock")
 def consultar_stock(id_almacen: int, db: Session = Depends(get_db)):

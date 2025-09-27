@@ -3,13 +3,12 @@
 ## 🟡 Producto
 **Atributos:**  
 1. id_producto  
-2. id_empresa  
-3. nombre  
-4. descripcion  
-5. peso  
-6. volumen  
-7. sku  
-8. precio  
+2. nombre  
+3. descripcion  
+4. peso  
+5. volumen  
+6. sku  
+7. precio  
 
 **Métodos:**  
 1. crearProducto()  
@@ -22,12 +21,11 @@
 ## 🟡 Almacen
 **Atributos:**  
 1. id_almacen  
-2. id_empresa  
-3. id_agenteAliado  
-4. nombre  
-5. ubicacion  
-6. capacidad  
-7. tipo  
+2. id_agenteAliado  
+3. nombre  
+4. ubicacion  
+5. capacidad  
+6. tipo  
 
 **Métodos:**  
 1. registrarAlmacen()  
