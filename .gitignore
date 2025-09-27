@@ -42,8 +42,7 @@ __pycache__/
 *.aws/credentials
 *.aws/config
 *.aws_session_token
-*.env    # cualquier .env en cualquier carpeta
-*.env.*  # otros archivos de entorno
+
 
 # ==============================
 # OS
