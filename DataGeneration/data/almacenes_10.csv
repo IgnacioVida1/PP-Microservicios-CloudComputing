@@ -1,0 +1,3 @@
+id_almacen,id_agenteAliado,nombre,ubicacion,capacidad,tipo
+1,287,Almacén 1 - Ourense,"Rambla de Flavia Coronado 752 Puerta 0 , Valladolid, 16732",187337,Zona Franca
+2,985,Almacén 2 - Madrid,"Cañada de Leyre Peñas 80, Granada, 38452",460547,Zona Franca
