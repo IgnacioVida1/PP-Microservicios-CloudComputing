@@ -25,6 +25,17 @@ public class ConductorService {
         this.conductorRepo = conductorRepo;
     }
 
+    public Conductor actualizarConductor(Long id, Conductor c) {
+        Conductor conductorExistente = conductorRepo.findById(id)
+                .orElseThrow(() -> new NotFoundException("Conductor no encontrado"));
+
+        conductorExistente.setNombre(c.getNombre());
+        conductorExistente.setLicencia(c.getLicencia());
+        conductorExistente.setDisponible(c.isDisponible());
+
+        return conductorRepo.save(conductorExistente);
+    }
+
     public List<Conductor> consultarDisponibilidadConductores() {
         return conductorRepo.findByDisponibleTrue();
     }

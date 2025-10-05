@@ -6,22 +6,10 @@ class ProductoService:
         self.base_url = config.MS1_PRODUCTOS_URL
     
     async def consultar_producto(self, id_producto: str):
-        # TODO: Implementar llamada real cuando MS1 esté listo
-        # Por ahora, mock data
         try:
-            # async with httpx.AsyncClient() as client:
-            #     response = await client.get(f"{self.base_url}/productos/{id_producto}")
-            #     return response.json()
-            
-            # Mock response
-            return {
-                "id_producto": id_producto,
-                "nombre": f"Producto {id_producto}",
-                "peso": 1.5,
-                "volumen": 0.5,
-                "precio": 29.99,
-                "stock_disponible": 100
-            }
+            async with httpx.AsyncClient() as client:
+                response = await client.get(f"{self.base_url}/productos/{id_producto}")
+                return response.json()
         except Exception as e:
             print(f"Error consultando producto: {e}")
             return None

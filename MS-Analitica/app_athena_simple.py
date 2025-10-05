@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 # Configuración básica
 REGION = 'us-east-1'
-S3_OUTPUT_BUCKET_NAME = 'analytics-proy-parcial'  # Tu bucket real
-DATABASE_NAME = 'ecommerce_analytics_db'
+S3_OUTPUT_BUCKET_NAME = 'logisticabucket'  # Tu bucket real
+DATABASE_NAME = 'logistica_analytics_db'
 S3_OUTPUT_LOCATION = f's3://{S3_OUTPUT_BUCKET_NAME}/results/'
 
 print("🚀 Iniciando microservicio Athena SIMPLIFICADO...")
@@ -21,7 +21,7 @@ def ejecutar_consulta_athena(query):
         print("✅ Cliente Athena conectado")
         
         # 2. Ejecutar consulta
-        print(f"📊 Ejecutando consulta: {query}")
+        print(f"📊 Ejecutando consulta...")
         response = athena.start_query_execution(
             QueryString=query,
             QueryExecutionContext={'Database': DATABASE_NAME},
@@ -82,9 +82,9 @@ def health():
 def productos_top():
     consulta = """
     SELECT nombre, precio 
-    FROM productos 
+    FROM producto
     ORDER BY precio DESC 
-    LIMIT 10
+    LIMIT 10;
     """
     resultados, error = ejecutar_consulta_athena(consulta)
     
@@ -105,8 +105,8 @@ def stock_por_almacen():
     a.id_almacen,
     a.nombre AS nombre_almacen,
     SUM(i.stock_disponible) AS total_stock_disponible
-    FROM inventarios i
-    JOIN almacenes a
+    FROM inventario i
+    JOIN almacen a
         ON i.id_almacen = a.id_almacen
     GROUP BY a.id_almacen, a.nombre
     ORDER BY total_stock_disponible DESC;
@@ -130,14 +130,14 @@ def topmayorinventario():
         t2.nombre AS nombre_producto,
         SUM(t1.stock_disponible * t2.precio) AS valor_inventario_total
     FROM
-        inventarios t1
+        inventario t1
     INNER JOIN
-        productos t2 ON t1.id_producto = t2.id_producto
+        producto t2 ON t1.id_producto = t2.id_producto
     GROUP BY
         t2.nombre
     ORDER BY
         valor_inventario_total DESC
-    LIMIT 5"""
+    LIMIT 5;"""
     
     resultados, error = ejecutar_consulta_athena(consulta)
     
@@ -167,10 +167,10 @@ def consulta_simple():
         p.precio,
         a.nombre as almacen,
         i.stock_disponible
-    FROM productos p
-    INNER JOIN inventarios i ON p.id_producto = i.id_producto
-    INNER JOIN almacenes a ON i.id_almacen = a.id_almacen
-    LIMIT 5
+    FROM producto p
+    INNER JOIN inventario i ON p.id_producto = i.id_producto
+    INNER JOIN almacen a ON i.id_almacen = a.id_almacen
+    LIMIT 5;
     """
     
     resultados, error = ejecutar_consulta_athena(consulta)

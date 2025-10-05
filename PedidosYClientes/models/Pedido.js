@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const PedidoSchema = new mongoose.Schema({
     id_cliente_final: {type: mongoose.Schema.Types.ObjectId, ref: 'ClienteFinal', required: true},
+    id_conductor: {type: Number, required: false},
     estado: {type: String, enum: ['pendiente', 'enviado', 'entregado'], default: 'pendiente'},
     monto_total: {type: Number, required: true},
     direccion_entrega: {type: String, required: true},

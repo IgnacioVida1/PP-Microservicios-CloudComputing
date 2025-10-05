@@ -25,6 +25,7 @@ public class VehiculoService {
             throw new IllegalArgumentException("El vehículo no puede ser nulo");
         }
         return vehRepo.save(v);
+
     }
 
     public Vehiculo asignarConductorAvehiculo(Long idVehiculo, Long idConductor) {

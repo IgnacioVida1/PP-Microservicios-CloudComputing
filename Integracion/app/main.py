@@ -1,48 +1,47 @@
 from fastapi import FastAPI, HTTPException
 from app.services.asignacion_service import AsignacionService
-from app.models.asignacion_models import AsignacionPedidoRequest, AsignacionPedidoResponse, ReporteEficiencia
 
+# Inicializar aplicación FastAPI
 app = FastAPI(
-    title="Microservicio 4 - Integración",
-    description="Orquestador de servicios para asignación de pedidos",
-    version="1.0.0"
+    title="Microservicio 4 - Orquestador Logístico",
+    description="Coordina pedidos, productos y logística entre microservicios.",
+    version="2.0.0"
 )
 
+# Inicializar servicio principal
 asignacion_service = AsignacionService()
+
 
 @app.get("/")
 async def root():
-    return {"message": "Microservicio 4 - Integración funcionando"}
+    return {"message": "🟢 Microservicio 4 (Orquestador) operativo"}
 
-@app.post("/asignarPedido/{id_pedido}", response_model=dict)
+
+@app.post("/asignar/{id_pedido}")
 async def asignar_pedido(id_pedido: str):
-    """
-    Endpoint principal para asignar un pedido
-    Combina: Pedido (MS3) + Producto (MS1) + Conductor (MS2)
-    """
     try:
         resultado = await asignacion_service.asignar_pedido(id_pedido)
+        if "error" in resultado:
+            raise HTTPException(status_code=400, detail=resultado["error"])
         return resultado
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/reportes/eficiencia/{periodo}", response_model=ReporteEficiencia)
-async def obtener_reporte_eficiencia(periodo: str):
-    """
-    Endpoint para reportes analíticos combinados
-    """
+
+@app.get("/reporte/eficiencia")
+async def obtener_reporte_eficiencia():
+
     try:
-        reporte = await asignacion_service.generar_reporte_eficiencia(periodo)
+        reporte = await asignacion_service.generar_reporte_eficiencia()
         return reporte
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 @app.get("/health")
 async def health_check():
-    """
-    Endpoint de health check para verificar estado del servicio
-    """
-    return {"status": "healthy", "service": "ms4-integracion"}
+    return {"status": "healthy", "service": "ms4-orquestador"}
+
 
 if __name__ == "__main__":
     import uvicorn

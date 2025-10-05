@@ -22,6 +22,11 @@ public class ConductorController {
         return ResponseEntity.ok(conductorService.registrarConductor(c));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Conductor> actualizarConductor(@PathVariable Long id, @RequestBody Conductor c){
+        return ResponseEntity.ok(conductorService.actualizarConductor(id, c));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Conductor> consultarConductor(@PathVariable Long id){
         return ResponseEntity.ok(conductorService.consultarConductor(id));
