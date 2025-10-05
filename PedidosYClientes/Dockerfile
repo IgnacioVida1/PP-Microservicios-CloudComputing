@@ -5,13 +5,13 @@ FROM node:20-alpine
 WORKDIR /usr/src/app
 
 # Copiamos package.json y package-lock.json para instalar dependencias
-COPY Backend/package*.json ./
+COPY package*.json ./
 
 # Instalamos dependencias
 RUN npm install --production
 
 # Copiamos el resto del código
-COPY Backend/. .
+COPY . .
 
 # Instalar dotenv para que Node.js lea el .env
 RUN npm install dotenv --production
