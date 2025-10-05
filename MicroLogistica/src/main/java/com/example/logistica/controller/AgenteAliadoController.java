@@ -32,6 +32,11 @@ public class AgenteAliadoController {
         return ResponseEntity.ok(agenteService.consultarAgentes());
     }
 
+    @GetMapping("/inventario/{id}")
+    public ResponseEntity<List<Object>> consultarAlmacenDeAgente(@PathVariable Long id){
+        return ResponseEntity.ok(agenteService.consultarAlmacenDeAgente(id));
+    }
+
     @PatchMapping("/{id}/almacen/{idAlmacen}")
     public ResponseEntity<AgenteAliado> asignarAlmacen(@PathVariable Long id, @PathVariable Long idAlmacen){
         return ResponseEntity.ok(agenteService.asignarAlmacen(id, idAlmacen));
